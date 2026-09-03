@@ -5,6 +5,254 @@
 	(uuid "1b23704b-4aa3-4e19-9608-8066456115f1")
 	(paper "A4")
 	(lib_symbols
+		(symbol "Analog_DAC:MCP4801"
+			(pin_names
+				(offset 1.016)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "U"
+				(at 1.27 10.795 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Value" "MCP4801"
+				(at 1.27 8.89 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Footprint" ""
+				(at 22.86 -2.54 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" "http://ww1.microchip.com/downloads/en/DeviceDoc/22244B.pdf"
+				(at 22.86 -2.54 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "8-Bit D/A Converters with SPI Interface, internal Reference (2.048V)"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "8-Bit DAC SPI Reference 1ch"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_fp_filters" "DIP*W7.62mm* MSOP*3x3mm*P0.65mm* SOIC*3.9x4.9mm*P1.27mm*"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "MCP4801_0_0"
+				(polyline
+					(pts
+						(xy 12.7 0) (xy 5.08 7.62) (xy -10.16 7.62) (xy -10.16 -7.62) (xy 5.08 -7.62) (xy 12.7 0)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+			)
+			(symbol "MCP4801_1_1"
+				(pin power_in line
+					(at 0 10.16 270)
+					(length 2.54)
+					(name "Vdd"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -12.7 0 0)
+					(length 2.54)
+					(name "~{CS}"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input clock
+					(at -12.7 -2.54 0)
+					(length 2.54)
+					(name "SCK"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -12.7 -5.08 0)
+					(length 2.54)
+					(name "SDI"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -12.7 2.54 0)
+					(length 2.54)
+					(name "~{LDAC}"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -12.7 5.08 0)
+					(length 2.54)
+					(name "~{SHDN}"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "6"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at 0 -10.16 90)
+					(length 2.54)
+					(name "Vss"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "7"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin output line
+					(at 15.24 0 180)
+					(length 2.54)
+					(name "Vout"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "8"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "Connector:TestPoint"
 			(pin_numbers
 				(hide yes)
@@ -118,164 +366,6 @@
 						)
 					)
 					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "Connector_Generic:Conn_01x02"
-			(pin_names
-				(offset 1.016)
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(in_pos_files yes)
-			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "J"
-				(at 0 2.54 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "Conn_01x02"
-				(at 0 -5.08 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" ""
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Description" "Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_keywords" "connector"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_fp_filters" "Connector*:*_1x??_*"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(symbol "Conn_01x02_1_1"
-				(rectangle
-					(start -1.27 1.27)
-					(end 1.27 -3.81)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type background)
-					)
-				)
-				(rectangle
-					(start -1.27 0.127)
-					(end 0 -0.127)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(rectangle
-					(start -1.27 -2.413)
-					(end 0 -2.667)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(pin passive line
-					(at -5.08 0 0)
-					(length 3.81)
-					(name "Pin_1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -5.08 -2.54 0)
-					(length 3.81)
-					(name "Pin_2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -5220,6 +5310,18 @@
 		(uuid "a746fcf1-99ab-4c36-a7dc-1d2419977523")
 	)
 	(rectangle
+		(start 220.98 93.98)
+		(end 276.86 158.75)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(fill
+			(type none)
+		)
+		(uuid "a7810ed5-5c31-4db8-94af-52b92f0a944b")
+	)
+	(rectangle
 		(start 16.51 74.93)
 		(end 119.38 182.88)
 		(stroke
@@ -5244,8 +5346,8 @@
 		(uuid "de5c1538-dcf2-44b4-8039-574d2e1c07cb")
 	)
 	(rectangle
-		(start 232.41 72.39)
-		(end 267.97 92.71)
+		(start 229.87 71.12)
+		(end 267.97 91.44)
 		(stroke
 			(width 0)
 			(type default)
@@ -5267,9 +5369,19 @@
 		)
 		(uuid "f629bc4a-3376-4be6-a9b1-f994f9549834")
 	)
-	(text "Gear Position Potentiometer\n\n"
+	(text "TODO:\n- Connect Devices, use AI with Netlist\n"
 		(exclude_from_sim no)
-		(at 247.65 75.438 0)
+		(at 255.778 28.194 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "11686c0b-395a-4f98-8917-a77b2c2c6e71")
+	)
+	(text "Gear Position Potentiometer \n& Neutral Switch\nINPUT\n"
+		(exclude_from_sim no)
+		(at 247.904 75.438 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5287,6 +5399,16 @@
 		)
 		(uuid "335a7913-0c8d-4bd8-8ee4-40884bbde0fd")
 	)
+	(text "Digital to Analogue Converter\n"
+		(exclude_from_sim no)
+		(at 236.22 95.758 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "4525a62b-7913-4618-9d54-84b23059c919")
+	)
 	(text "CAN Transciver"
 		(exclude_from_sim no)
 		(at 138.43 98.044 0)
@@ -5297,9 +5419,19 @@
 		)
 		(uuid "5cde2fbd-b106-4b06-b4f9-08e72072cd54")
 	)
-	(text "SWD Headers\n"
+	(text "5V power OUT"
 		(exclude_from_sim no)
-		(at 202.438 73.406 0)
+		(at 237.744 90.424 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "60dbcb22-ec5c-489a-aa3d-e65cc2df423c")
+	)
+	(text "SWD Headers\nDEBUG/PROG"
+		(exclude_from_sim no)
+		(at 202.946 74.422 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5316,6 +5448,16 @@
 			)
 		)
 		(uuid "a0b264c7-abb7-482c-9b5c-50cbc56779de")
+	)
+	(text "Clutch Position Data over CAN"
+		(exclude_from_sim no)
+		(at 201.422 109.982 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "b225080b-2f44-4851-9363-b3db4e5262fb")
 	)
 	(text "USB 2.0 Type C\n"
 		(exclude_from_sim no)
@@ -5337,7 +5479,7 @@
 		)
 		(uuid "d1ade4ea-0e87-4bf5-b20f-c9d2c1b9724a")
 	)
-	(text "Gear Position Plug on Loom\n"
+	(text "Gear Position Plug on Loom\nOUTPUT\n"
 		(exclude_from_sim no)
 		(at 156.464 73.66 0)
 		(effects
@@ -5356,6 +5498,16 @@
 			)
 		)
 		(uuid "e89bf5a9-796b-4bd6-ad52-87f70c87f9de")
+	)
+	(text "5V power IN"
+		(exclude_from_sim no)
+		(at 157.226 89.408 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "f462315c-1498-4611-9a06-f7d732fd2f45")
 	)
 	(junction
 		(at 74.93 25.4)
@@ -5554,6 +5706,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "ebbb74d6-21f5-4dc3-bf6f-05833166d525")
+	)
+	(junction
+		(at 250.19 114.3)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "ed0ec2d2-e1c5-4c79-8ef7-8bb3cd65a14c")
 	)
 	(junction
 		(at 44.45 102.87)
@@ -5945,6 +6103,16 @@
 	)
 	(wire
 		(pts
+			(xy 241.3 114.3) (xy 241.3 115.57)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "46d2bf16-ad3f-4e2b-802d-3b06070f71ca")
+	)
+	(wire
+		(pts
 			(xy 26.67 102.87) (xy 27.94 102.87)
 		)
 		(stroke
@@ -6195,6 +6363,16 @@
 	)
 	(wire
 		(pts
+			(xy 250.19 142.24) (xy 250.19 137.16)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7f425767-44b6-4f0c-b855-492affb8e8b0")
+	)
+	(wire
+		(pts
 			(xy 46.99 53.34) (xy 46.99 55.88)
 		)
 		(stroke
@@ -6232,6 +6410,16 @@
 			(type default)
 		)
 		(uuid "88c062e5-a0cb-4b71-a71f-3b1d0f40c029")
+	)
+	(wire
+		(pts
+			(xy 242.57 114.3) (xy 241.3 114.3)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8b0e696d-3c6b-4763-9872-b1f252ae394a")
 	)
 	(wire
 		(pts
@@ -6735,6 +6923,16 @@
 	)
 	(wire
 		(pts
+			(xy 250.19 110.49) (xy 250.19 114.3)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e74e4bd5-010e-4ff3-883e-31c51cfc0372")
+	)
+	(wire
+		(pts
 			(xy 146.05 130.81) (xy 143.51 130.81)
 		)
 		(stroke
@@ -6762,6 +6960,16 @@
 			(type default)
 		)
 		(uuid "eda70d65-cb7c-4cda-8e33-e00dcfa9d0d3")
+	)
+	(wire
+		(pts
+			(xy 250.19 114.3) (xy 250.19 116.84)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "eff41e3c-41ad-43e5-a42d-7486bef68ff9")
 	)
 	(wire
 		(pts
@@ -6927,6 +7135,30 @@
 			)
 		)
 	)
+	(global_label "SCK_DAC"
+		(shape input)
+		(at 237.49 129.54 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "1e0ceae8-9a7f-4097-bbdb-9f9d86cd084e")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 226.1591 129.54 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+	)
 	(global_label "SWDIO"
 		(shape input)
 		(at 90.17 135.89 0)
@@ -6996,6 +7228,30 @@
 					(size 1.27 1.27)
 				)
 				(justify left)
+			)
+		)
+	)
+	(global_label "SDI_DAC"
+		(shape input)
+		(at 237.49 132.08 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "2cd073a4-e3bd-4ece-85b4-a1bf1f4060d3")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 226.8243 132.08 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
 			)
 		)
 	)
@@ -7095,6 +7351,30 @@
 			)
 		)
 	)
+	(global_label "GPS_POT"
+		(shape input)
+		(at 248.92 82.55 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "4c692d90-fe76-4eee-bf55-94258922fab7")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 237.6496 82.55 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+	)
 	(global_label "D+"
 		(shape input)
 		(at 90.17 133.35 0)
@@ -7119,9 +7399,9 @@
 			)
 		)
 	)
-	(global_label "GPS_POT"
+	(global_label "LATCH_DAC"
 		(shape input)
-		(at 248.92 81.28 180)
+		(at 237.49 124.46 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -7129,9 +7409,9 @@
 			)
 			(justify right)
 		)
-		(uuid "66eddb27-8b26-403e-9eaf-fba001a7e036")
+		(uuid "673b3eb0-62d6-45a7-aa73-d3f93835adb2")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 237.6496 81.28 0)
+			(at 224.2238 124.46 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7164,6 +7444,54 @@
 					(size 1.27 1.27)
 				)
 				(justify left)
+			)
+		)
+	)
+	(global_label "+5V"
+		(shape input)
+		(at 248.92 87.63 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "6ff1243d-a268-45a6-9823-14a5253a61ed")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 242.0643 87.63 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+	)
+	(global_label "CS_DAC"
+		(shape input)
+		(at 237.49 127 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "842ad576-48d5-4576-bb99-117c02e966b8")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 227.4291 127 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
 			)
 		)
 	)
@@ -7212,6 +7540,30 @@
 					(size 1.27 1.27)
 				)
 				(justify right)
+			)
+		)
+	)
+	(global_label "GEAR"
+		(shape input)
+		(at 265.43 127 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "8c947f53-67ce-40bc-bb97-0e2d6b1cc726")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 273.1928 127 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
 			)
 		)
 	)
@@ -7287,6 +7639,30 @@
 			)
 		)
 	)
+	(global_label "SHDN_DAC"
+		(shape input)
+		(at 237.49 121.92 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "a8579a07-0295-49f8-8e84-40b614369d99")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 224.7681 121.92 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+	)
 	(global_label "SWCLK"
 		(shape input)
 		(at 90.17 138.43 0)
@@ -7359,6 +7735,30 @@
 			)
 		)
 	)
+	(global_label "NEUT_SW"
+		(shape input)
+		(at 248.92 80.01 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "dd9b611d-8349-4e10-9138-97f447b1b3dd")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 237.5287 80.01 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+	)
 	(global_label "+3V3"
 		(shape input)
 		(at 96.52 25.4 0)
@@ -7407,30 +7807,6 @@
 			)
 		)
 	)
-	(global_label "+5V"
-		(shape input)
-		(at 248.92 86.36 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "f5827809-4f38-43c5-9adc-9341b34eaa15")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 242.0643 86.36 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-	)
 	(global_label "SWCLK"
 		(shape input)
 		(at 207.01 81.28 180)
@@ -7452,6 +7828,84 @@
 					(size 1.27 1.27)
 				)
 				(justify right)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+3.3V")
+		(at 250.19 110.49 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "02b2b81d-df42-421d-ae21-f0c65a274f21")
+		(property "Reference" "#PWR031"
+			(at 250.19 114.3 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "+3V3"
+			(at 247.142 107.188 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 250.19 110.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 250.19 110.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
+			(at 250.19 110.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "5718a2a9-ac06-4778-981d-806e25f872f9")
+		)
+		(instances
+			(project "gearPosSens"
+				(path "/1b23704b-4aa3-4e19-9608-8066456115f1"
+					(reference "#PWR031")
+					(unit 1)
+				)
 			)
 		)
 	)
@@ -7631,86 +8085,6 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 248.92 83.82 270)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "196317fb-a5f0-4f3f-adfe-b796ecefd1bb")
-		(property "Reference" "#PWR023"
-			(at 242.57 83.82 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 245.11 83.8199 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" ""
-			(at 248.92 83.82 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 248.92 83.82 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 248.92 83.82 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "d1081a11-8b57-45ff-8912-1b3a4cd00e38")
-		)
-		(instances
-			(project "gearPosSens"
-				(path "/1b23704b-4aa3-4e19-9608-8066456115f1"
-					(reference "#PWR023")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
 		(at 67.31 38.1 0)
 		(unit 1)
 		(body_style 1)
@@ -7863,6 +8237,85 @@
 			(project "gearPosSens"
 				(path "/1b23704b-4aa3-4e19-9608-8066456115f1"
 					(reference "#PWR019")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 250.19 142.24 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "3b512de0-62ae-4642-94fc-b8da21165e09")
+		(property "Reference" "#PWR032"
+			(at 250.19 148.59 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 250.19 147.32 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 250.19 142.24 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 250.19 142.24 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 250.19 142.24 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "67c01671-b2d1-46ed-bb7a-977e139c7d02")
+		)
+		(instances
+			(project "gearPosSens"
+				(path "/1b23704b-4aa3-4e19-9608-8066456115f1"
+					(reference "#PWR032")
 					(unit 1)
 				)
 			)
@@ -8260,6 +8713,86 @@
 			(project "gearPosSens"
 				(path "/1b23704b-4aa3-4e19-9608-8066456115f1"
 					(reference "#PWR08")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 248.92 85.09 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "553a18eb-a970-4f34-b2e7-e9048466ca3d")
+		(property "Reference" "#PWR023"
+			(at 242.57 85.09 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 245.11 85.0899 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 248.92 85.09 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 248.92 85.09 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 248.92 85.09 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "e4e8a4ce-a900-4310-8d40-ac053d6d7174")
+		)
+		(instances
+			(project "gearPosSens"
+				(path "/1b23704b-4aa3-4e19-9608-8066456115f1"
+					(reference "#PWR023")
 					(unit 1)
 				)
 			)
@@ -9266,6 +9799,85 @@
 	)
 	(symbol
 		(lib_id "Device:C")
+		(at 246.38 114.3 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "815fc18d-20f0-4897-813d-0634c75af22b")
+		(property "Reference" "C13"
+			(at 246.38 109.474 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "100nF"
+			(at 246.38 111.252 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder"
+			(at 250.19 113.3348 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 246.38 114.3 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 246.38 114.3 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "a86e45d3-6f02-4be7-a351-a4a35c4f4302")
+		)
+		(pin "2"
+			(uuid "5d9ad4d8-06ae-4195-8831-a9c2ab35ec34")
+		)
+		(instances
+			(project "gearPosSens"
+				(path "/1b23704b-4aa3-4e19-9608-8066456115f1"
+					(reference "C13")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
 		(at 96.52 30.48 0)
 		(unit 1)
 		(body_style 1)
@@ -9341,91 +9953,6 @@
 			(project "gearPosSens"
 				(path "/1b23704b-4aa3-4e19-9608-8066456115f1"
 					(reference "C3")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector_Generic:Conn_01x03")
-		(at 254 83.82 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "84529712-94b6-4d93-8725-700a25e9a0ed")
-		(property "Reference" "J5"
-			(at 256.54 82.5499 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "GPS_LOOM"
-			(at 256.54 85.0899 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Connector:Tag-Connect_TC2030-IDC-FP_2x03_P1.27mm_Vertical"
-			(at 254 83.82 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 254 83.82 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Generic connector, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 254 83.82 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "3"
-			(uuid "f93df6e7-d7a1-46ac-9c28-2d4f9714dbf0")
-		)
-		(pin "1"
-			(uuid "b0422a6e-0824-4ef0-971a-03eab648e675")
-		)
-		(pin "2"
-			(uuid "4193e1cc-879c-4a6c-9c63-b356e9fb5b1c")
-		)
-		(instances
-			(project "gearPosSens"
-				(path "/1b23704b-4aa3-4e19-9608-8066456115f1"
-					(reference "J5")
 					(unit 1)
 				)
 			)
@@ -10425,88 +10952,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Connector_Generic:Conn_01x02")
-		(at 185.42 59.69 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "b0c2f51d-a323-4ab7-b0a8-2312eb073f7c")
-		(property "Reference" "J2"
-			(at 187.96 59.6899 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "EXT_5V"
-			(at 187.96 62.2299 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Connector:Tag-Connect_TC2030-IDC-FP_2x03_P1.27mm_Vertical"
-			(at 185.42 59.69 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 185.42 59.69 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 185.42 59.69 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "9deeb905-86e4-4c86-8a0d-f5a3a588e99f")
-		)
-		(pin "2"
-			(uuid "8f540c62-a94c-420d-a340-a3af8ad89857")
-		)
-		(instances
-			(project "gearPosSens"
-				(path "/1b23704b-4aa3-4e19-9608-8066456115f1"
-					(reference "J2")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Connector_Generic:Conn_01x03")
 		(at 162.56 82.55 0)
 		(unit 1)
@@ -10540,7 +10985,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Connector:Tag-Connect_TC2030-IDC-FP_2x03_P1.27mm_Vertical"
+		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical"
 			(at 162.56 82.55 0)
 			(hide yes)
 			(show_name no)
@@ -10586,6 +11031,105 @@
 			(project "gearPosSens"
 				(path "/1b23704b-4aa3-4e19-9608-8066456115f1"
 					(reference "J3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector_Generic:Conn_01x04")
+		(at 254 82.55 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "bcdb1f7d-9bde-4c13-91fc-36aa14c3c938")
+		(property "Reference" "J2"
+			(at 256.54 82.5499 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "Conn_SWD"
+			(at 256.54 85.0899 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical"
+			(at 254 82.55 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 254 82.55 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 254 82.55 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "KiLib_Generator" "connector/pin_header_socket"
+			(at 254 82.55 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "e83e8ba9-1069-4df1-b587-4f722cdb292c")
+		)
+		(pin "3"
+			(uuid "99ffb5c1-caff-4533-a3a2-fc8e22af2c5c")
+		)
+		(pin "4"
+			(uuid "5953708a-e2e3-4fc2-b3e5-f206104fc9ca")
+		)
+		(pin "1"
+			(uuid "6941c664-c579-4aa8-9ec1-f2bc5684f9b0")
+		)
+		(instances
+			(project "gearPosSens"
+				(path "/1b23704b-4aa3-4e19-9608-8066456115f1"
+					(reference "J2")
 					(unit 1)
 				)
 			)
@@ -10666,6 +11210,85 @@
 			(project "gearPosSens"
 				(path "/1b23704b-4aa3-4e19-9608-8066456115f1"
 					(reference "#PWR017")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 241.3 115.57 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "c434e629-4615-485b-93ab-174927a42c76")
+		(property "Reference" "#PWR028"
+			(at 241.3 121.92 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 241.3 120.65 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 241.3 115.57 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 241.3 115.57 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 241.3 115.57 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "a5b081c8-6c96-4802-bf1f-602802d80eec")
+		)
+		(instances
+			(project "gearPosSens"
+				(path "/1b23704b-4aa3-4e19-9608-8066456115f1"
+					(reference "#PWR028")
 					(unit 1)
 				)
 			)
@@ -11038,6 +11661,104 @@
 			(project "gearPosSens"
 				(path "/1b23704b-4aa3-4e19-9608-8066456115f1"
 					(reference "SW2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Analog_DAC:MCP4801")
+		(at 250.19 127 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "c8bb7c9e-bd6f-497e-9743-3fa5b5272174")
+		(property "Reference" "U5"
+			(at 269.24 120.5798 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "MCP4801"
+			(at 269.24 123.1198 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm"
+			(at 273.05 129.54 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "http://ww1.microchip.com/downloads/en/DeviceDoc/22244B.pdf"
+			(at 273.05 129.54 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "8-Bit D/A Converters with SPI Interface, internal Reference (2.048V)"
+			(at 250.19 127 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "7"
+			(uuid "fae820b5-daa6-4119-8eb7-8ce337b8ff85")
+		)
+		(pin "3"
+			(uuid "433a0443-de16-4203-924d-b0bee212a2df")
+		)
+		(pin "6"
+			(uuid "124b858a-942e-4c29-a4c3-c0ccbcba7d5e")
+		)
+		(pin "5"
+			(uuid "86d4225f-5466-4e58-97a1-6eb2c388e34c")
+		)
+		(pin "8"
+			(uuid "11c36fba-91b3-4745-b53a-9caab25bf5c3")
+		)
+		(pin "2"
+			(uuid "ee6e86d8-aa7d-4b85-a83b-662501ec5f4d")
+		)
+		(pin "1"
+			(uuid "ee031056-ae7b-4698-a137-6c7490682750")
+		)
+		(pin "4"
+			(uuid "a4a511f7-f168-4f1f-947f-2b8b33b35e11")
+		)
+		(instances
+			(project "gearPosSens"
+				(path "/1b23704b-4aa3-4e19-9608-8066456115f1"
+					(reference "U5")
 					(unit 1)
 				)
 			)
