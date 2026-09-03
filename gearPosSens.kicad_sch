@@ -5702,7 +5702,7 @@
 	)
 	(rectangle
 		(start 208.28 71.12)
-		(end 246.38 91.44)
+		(end 252.73 91.44)
 		(stroke
 			(width 0)
 			(type default)
@@ -5726,7 +5726,7 @@
 	)
 	(text "Gear Position Potentiometer \n& Neutral Switch\nINPUT\n"
 		(exclude_from_sim no)
-		(at 226.314 75.438 0)
+		(at 223.012 74.676 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5786,7 +5786,7 @@
 	)
 	(text "5V power OUT"
 		(exclude_from_sim no)
-		(at 216.154 90.424 0)
+		(at 223.774 90.424 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5806,7 +5806,7 @@
 	)
 	(text "Pinout orders"
 		(exclude_from_sim no)
-		(at 258.318 78.994 0)
+		(at 268.224 78.486 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5913,10 +5913,28 @@
 		(uuid "02a3aa34-f130-4b3f-a7f5-a8ea4dbc5956")
 	)
 	(junction
+		(at 143.51 85.09)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "0bf7caba-71d7-46bd-9521-42a936d6338e")
+	)
+	(junction
+		(at 71.12 25.4)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "0ed1545f-3274-45c6-88ad-a881f5da2697")
+	)
+	(junction
 		(at 170.18 123.19)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "1228efe0-98f8-4fb0-bbee-6f2b830df25f")
+	)
+	(junction
+		(at 144.78 80.01)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "1ae9db34-0fa9-4ce8-9379-3eec629c3408")
 	)
 	(junction
 		(at 74.93 87.63)
@@ -5973,10 +5991,22 @@
 		(uuid "43bc2919-a1ec-44b3-ac46-88820ed95a84")
 	)
 	(junction
+		(at 227.33 82.55)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "4b8cebf9-166a-4790-ba86-1e0d6a5aad01")
+	)
+	(junction
 		(at 186.69 115.57)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "4c742d16-c1cd-4d8d-a86a-30e696190989")
+	)
+	(junction
+		(at 228.6 80.01)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "4d4e3dab-037d-4e62-ae45-35d076fda09e")
 	)
 	(junction
 		(at 43.18 113.03)
@@ -6033,6 +6063,12 @@
 		(uuid "928d5647-6ba4-49f3-8038-5a83ec2b47b6")
 	)
 	(junction
+		(at 92.71 25.4)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "92c0abbb-41ce-454e-90ab-590ae721d631")
+	)
+	(junction
 		(at 46.99 53.34)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -6085,6 +6121,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "cf670223-9d4a-4acd-8752-567edaf9d92a")
+	)
+	(junction
+		(at 96.52 36.83)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "d06fefec-b64b-4a8e-b828-a765ea72f557")
 	)
 	(junction
 		(at 204.47 125.73)
@@ -6208,6 +6250,16 @@
 	)
 	(wire
 		(pts
+			(xy 237.49 87.63) (xy 234.95 87.63)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "01176848-097f-47d1-8ec5-9705b9fc5382")
+	)
+	(wire
+		(pts
 			(xy 43.18 102.87) (xy 44.45 102.87)
 		)
 		(stroke
@@ -6225,6 +6277,16 @@
 			(type default)
 		)
 		(uuid "0ccb28b5-d1d2-4a31-9d61-97596f08ea68")
+	)
+	(wire
+		(pts
+			(xy 96.52 36.83) (xy 96.52 38.1)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "120779c0-a53a-4dd2-8745-51689340b4b0")
 	)
 	(wire
 		(pts
@@ -6295,6 +6357,16 @@
 			(type default)
 		)
 		(uuid "29e43188-5b80-41e1-9f3b-f29a2bac72ff")
+	)
+	(wire
+		(pts
+			(xy 237.49 85.09) (xy 234.95 85.09)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2a348b7c-78bb-437d-bafe-25319f17a14e")
 	)
 	(wire
 		(pts
@@ -6458,6 +6530,16 @@
 	)
 	(wire
 		(pts
+			(xy 92.71 25.4) (xy 96.52 25.4)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3f78bb07-2d5a-4ff5-92be-eb66e0b14cc5")
+	)
+	(wire
+		(pts
 			(xy 109.22 55.88) (xy 109.22 53.34)
 		)
 		(stroke
@@ -6478,7 +6560,7 @@
 	)
 	(wire
 		(pts
-			(xy 67.31 25.4) (xy 74.93 25.4)
+			(xy 67.31 25.4) (xy 71.12 25.4)
 		)
 		(stroke
 			(width 0)
@@ -6558,6 +6640,16 @@
 	)
 	(wire
 		(pts
+			(xy 228.6 80.01) (xy 237.49 80.01)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4c0b0052-d705-43c4-853b-df13fdd1c81e")
+	)
+	(wire
+		(pts
 			(xy 85.09 63.5) (xy 85.09 66.04)
 		)
 		(stroke
@@ -6565,6 +6657,16 @@
 			(type default)
 		)
 		(uuid "4faae97d-935b-4315-b6a4-404ed5082d41")
+	)
+	(wire
+		(pts
+			(xy 227.33 82.55) (xy 237.49 82.55)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "53fda3d0-3ac7-4990-a7a5-eac52db8d3f2")
 	)
 	(wire
 		(pts
@@ -6645,6 +6747,26 @@
 			(type default)
 		)
 		(uuid "5e509f35-b3e4-48fb-ab76-d13a1b9b9082")
+	)
+	(wire
+		(pts
+			(xy 226.06 80.01) (xy 228.6 80.01)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "609148f5-bbdb-46fa-b97f-fd9951e2158d")
+	)
+	(wire
+		(pts
+			(xy 143.51 80.01) (xy 152.4 80.01)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "617056f5-cd7f-43cb-881c-ae75af60c44d")
 	)
 	(wire
 		(pts
@@ -6788,6 +6910,16 @@
 	)
 	(wire
 		(pts
+			(xy 143.51 85.09) (xy 152.4 85.09)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "80521b95-617b-4acd-8b7f-ac48c7ce293e")
+	)
+	(wire
+		(pts
 			(xy 46.99 53.34) (xy 46.99 55.88)
 		)
 		(stroke
@@ -6795,6 +6927,16 @@
 			(type default)
 		)
 		(uuid "8079ba7e-a793-4cab-8b5e-214d73fbecdf")
+	)
+	(wire
+		(pts
+			(xy 71.12 25.4) (xy 74.93 25.4)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "847416fb-192f-4435-9e88-229bdd268045")
 	)
 	(wire
 		(pts
@@ -7128,6 +7270,26 @@
 	)
 	(wire
 		(pts
+			(xy 219.71 82.55) (xy 227.33 82.55)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d02d8bad-8f4d-4928-9d14-eddea8fc5f92")
+	)
+	(wire
+		(pts
+			(xy 142.24 85.09) (xy 143.51 85.09)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d102f4ae-6a48-4ae1-9236-caf1000fe5bf")
+	)
+	(wire
+		(pts
 			(xy 200.66 125.73) (xy 204.47 125.73)
 		)
 		(stroke
@@ -7178,7 +7340,7 @@
 	)
 	(wire
 		(pts
-			(xy 96.52 34.29) (xy 96.52 38.1)
+			(xy 96.52 34.29) (xy 96.52 36.83)
 		)
 		(stroke
 			(width 0)
@@ -7358,7 +7520,7 @@
 	)
 	(wire
 		(pts
-			(xy 90.17 25.4) (xy 96.52 25.4)
+			(xy 90.17 25.4) (xy 92.71 25.4)
 		)
 		(stroke
 			(width 0)
@@ -7582,7 +7744,7 @@
 	)
 	(global_label "GEAR"
 		(shape input)
-		(at 152.4 80.01 180)
+		(at 143.51 80.01 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -7592,7 +7754,7 @@
 		)
 		(uuid "29bd91c4-be29-4f38-a8e0-947bde4f817c")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 144.6372 80.01 0)
+			(at 135.7472 80.01 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7798,7 +7960,7 @@
 	)
 	(global_label "GPS_POT"
 		(shape input)
-		(at 227.33 82.55 180)
+		(at 219.71 82.55 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -7808,7 +7970,7 @@
 		)
 		(uuid "4c692d90-fe76-4eee-bf55-94258922fab7")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 216.0596 82.55 0)
+			(at 208.4396 82.55 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7942,7 +8104,7 @@
 	)
 	(global_label "+5V"
 		(shape input)
-		(at 227.33 87.63 180)
+		(at 234.95 87.63 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -7952,7 +8114,7 @@
 		)
 		(uuid "6ff1243d-a268-45a6-9823-14a5253a61ed")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 220.4743 87.63 0)
+			(at 228.0943 87.63 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8086,7 +8248,7 @@
 	)
 	(global_label "+5V"
 		(shape input)
-		(at 152.4 85.09 180)
+		(at 142.24 85.09 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -8096,7 +8258,7 @@
 		)
 		(uuid "93f42a96-62d9-4e9a-971d-8de20feb8135")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 145.5443 85.09 0)
+			(at 135.3843 85.09 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8302,7 +8464,7 @@
 	)
 	(global_label "NEUT_SW"
 		(shape input)
-		(at 227.33 80.01 180)
+		(at 226.06 80.01 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -8312,7 +8474,7 @@
 		)
 		(uuid "dd9b611d-8349-4e10-9138-97f447b1b3dd")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 215.9387 80.01 0)
+			(at 214.6687 80.01 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8701,6 +8863,162 @@
 			(project "gearPosSens"
 				(path "/1b23704b-4aa3-4e19-9608-8066456115f1"
 					(reference "#PWR03")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 71.12 25.4 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "24f4d08e-3af9-4b6d-a3ac-3af149686220")
+		(property "Reference" "TP8"
+			(at 69.342 18.542 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "VIN_LDO"
+			(at 68.326 20.32 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm"
+			(at 76.2 25.4 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 76.2 25.4 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 71.12 25.4 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "a2ec614a-9e77-4c7d-9051-d26b29632f3d")
+		)
+		(instances
+			(project "gearPosSens"
+				(path "/1b23704b-4aa3-4e19-9608-8066456115f1"
+					(reference "TP8")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 143.51 85.09 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "2c9266f3-e686-465d-b824-78c006cff5ff")
+		(property "Reference" "TP11"
+			(at 145.034 81.534 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "+5V"
+			(at 144.018 83.312 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm"
+			(at 148.59 85.09 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 148.59 85.09 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 143.51 85.09 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "d450a953-891f-4309-a28f-418849fbe68c")
+		)
+		(instances
+			(project "gearPosSens"
+				(path "/1b23704b-4aa3-4e19-9608-8066456115f1"
+					(reference "TP11")
 					(unit 1)
 				)
 			)
@@ -9104,6 +9422,84 @@
 		)
 	)
 	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 96.52 36.83 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "5429b477-ba63-4fbf-a91f-2efe3b26ad45")
+		(property "Reference" "TP9"
+			(at 91.948 35.56 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "GND"
+			(at 92.202 37.338 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm"
+			(at 96.52 31.75 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 96.52 31.75 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 96.52 36.83 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "a03840da-73ef-4116-bb91-b06ae7b83601")
+		)
+		(instances
+			(project "gearPosSens"
+				(path "/1b23704b-4aa3-4e19-9608-8066456115f1"
+					(reference "TP9")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 26.67 104.14 0)
 		(unit 1)
@@ -9184,7 +9580,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 227.33 85.09 270)
+		(at 234.95 85.09 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -9195,7 +9591,7 @@
 		(fields_autoplaced yes)
 		(uuid "553a18eb-a970-4f34-b2e7-e9048466ca3d")
 		(property "Reference" "#PWR023"
-			(at 220.98 85.09 0)
+			(at 228.6 85.09 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9206,7 +9602,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 223.52 85.0899 90)
+			(at 231.14 85.0899 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9218,7 +9614,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 227.33 85.09 0)
+			(at 234.95 85.09 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9229,7 +9625,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 227.33 85.09 0)
+			(at 234.95 85.09 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9240,7 +9636,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 227.33 85.09 0)
+			(at 234.95 85.09 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9420,6 +9816,84 @@
 			(project "gearPosSens"
 				(path "/1b23704b-4aa3-4e19-9608-8066456115f1"
 					(reference "R5")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 227.33 82.55 180)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "6136a4a3-ee7c-406e-b733-3b2a295e0867")
+		(property "Reference" "TP13"
+			(at 225.806 86.106 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "GPS_POT"
+			(at 226.822 84.328 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm"
+			(at 222.25 82.55 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 222.25 82.55 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 227.33 82.55 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "b521349b-fd4c-45b9-8efe-34eeda69c9fc")
+		)
+		(instances
+			(project "gearPosSens"
+				(path "/1b23704b-4aa3-4e19-9608-8066456115f1"
+					(reference "TP13")
 					(unit 1)
 				)
 			)
@@ -11877,7 +12351,7 @@
 	)
 	(symbol
 		(lib_id "Connector_Generic:Conn_01x04")
-		(at 232.41 82.55 0)
+		(at 242.57 82.55 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -11888,7 +12362,7 @@
 		(fields_autoplaced yes)
 		(uuid "bcdb1f7d-9bde-4c13-91fc-36aa14c3c938")
 		(property "Reference" "J2"
-			(at 234.95 82.5499 0)
+			(at 245.11 82.5499 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -11899,7 +12373,7 @@
 			)
 		)
 		(property "Value" "Conn_SWD"
-			(at 234.95 85.0899 0)
+			(at 245.11 85.0899 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -11910,7 +12384,7 @@
 			)
 		)
 		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical"
-			(at 232.41 82.55 0)
+			(at 242.57 82.55 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11921,7 +12395,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 232.41 82.55 0)
+			(at 242.57 82.55 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11932,7 +12406,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 232.41 82.55 0)
+			(at 242.57 82.55 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11943,7 +12417,7 @@
 			)
 		)
 		(property "KiLib_Generator" "connector/pin_header_socket"
-			(at 232.41 82.55 0)
+			(at 242.57 82.55 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12599,6 +13073,240 @@
 			(project "gearPosSens"
 				(path "/1b23704b-4aa3-4e19-9608-8066456115f1"
 					(reference "U5")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 92.71 25.4 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "cccbf831-946a-489c-9d5a-ac633ff1edef")
+		(property "Reference" "TP7"
+			(at 90.932 18.542 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "+3V3"
+			(at 89.916 20.32 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm"
+			(at 97.79 25.4 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 97.79 25.4 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 92.71 25.4 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "76ebc657-4855-48ae-944d-479842293387")
+		)
+		(instances
+			(project "gearPosSens"
+				(path "/1b23704b-4aa3-4e19-9608-8066456115f1"
+					(reference "TP7")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 228.6 80.01 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "d4097d52-81a9-4285-9f86-ce59ebad42be")
+		(property "Reference" "TP12"
+			(at 230.124 76.454 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "NEUT_SW"
+			(at 229.616 78.232 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm"
+			(at 233.68 80.01 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 233.68 80.01 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 228.6 80.01 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "d55b8a60-e495-41a9-9b4e-648a6bbed25c")
+		)
+		(instances
+			(project "gearPosSens"
+				(path "/1b23704b-4aa3-4e19-9608-8066456115f1"
+					(reference "TP12")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 144.78 80.01 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "d78c936a-c271-4142-9408-aec563070a82")
+		(property "Reference" "TP10"
+			(at 146.304 76.454 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "GEAR"
+			(at 145.288 78.232 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm"
+			(at 149.86 80.01 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 149.86 80.01 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 144.78 80.01 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "6f07c599-15c0-4ade-9de4-7e354f7ef17f")
+		)
+		(instances
+			(project "gearPosSens"
+				(path "/1b23704b-4aa3-4e19-9608-8066456115f1"
+					(reference "TP10")
 					(unit 1)
 				)
 			)
