@@ -80,13 +80,19 @@ Saved as a memory ([project_gear_library.md](../../../Users/chith/.claude/projec
 ## Git state
 
 - Repo: `C:\Users\chith\Desktop\GearPositionSTM` (branch `main`, up to date with `origin/main`).
-- **Not yet committed.** `git status` shows pre-existing uncommitted changes that predate this session (modified `.kicad_pcb`/`.kicad_prl`/`.kicad_pro`, an untracked `readme.md`, and a `.history` submodule with new commits — none of these were touched by me) plus this session's untracked additions (the four new library parts under `library/`).
-- User asked to commit before/after the schematic placement specifically so a bad placement can be reverted. **This has not happened yet** — no commits made this session.
+- Two commits made this session:
+  - `1ca4132` "Checkpoint before power-mux schematic placement" — the pre-existing working-tree state (your own prior WIP: `.kicad_pcb`/`.kicad_prl`/`.kicad_pro`, `readme.md`) plus this session's new library parts. `git revert 097ecf5` or `git reset --hard 1ca4132` gets you back to right before the schematic was touched.
+  - `097ecf5` "Add car-12V/USB-5V power mux to the schematic" — the actual placement, isolated in its own commit so it can be reverted independently.
+- The `.history` submodule was deliberately left untouched throughout (not staged, not committed).
 
-## Status — what's NOT done yet
+## Status — done
 
-The actual schematic placement (adding J6, TVS1, F2, D1, U6, U7 + support passives to `gearPosSens.kicad_sch`, wiring it up, relabeling the `VIN_LDO` net, resizing the page to A3 for room, and committing to git) was **in progress and got interrupted before any schematic edits were made**. Everything above (library parts, values, architecture) is decided and ready to place; no lines in `gearPosSens.kicad_sch` have been changed yet.
+The mux is placed in `gearPosSens.kicad_sch`, in its own bounded/labeled block in the upper right of a newly-widened A3 sheet, well clear of existing content. Summary of what changed:
 
-Last thing in progress: confirming R2/R3's far ends actually land on a GND symbol (found a plausible candidate — `#PWR014` at (201.93, 50.8) — but hadn't fully traced the wire chain to confirm before being interrupted).
+- **New parts placed:** J6 (WAGO, reused), TVS1 (SMBJ33A), F2 (Polyfuse, stock), D1 (PMEG6010ER), U6 (LMR33630ADDAR) with its support passives (C14 10µF Cin, C15 1µF Cvcc, C16 100nF Cboot, L1 22µH, C17 22µF Cout, R11 100k/R12 19.1k FB divider), U7 (TPS2113APWR) with R13 (499Ω ILIM).
+- **Only existing-content edit:** the one wire segment directly between F1 and the rest of the `VIN_LDO` run was cut; F1's now-bare pin got a new `5V_USB` label (feeding the mux's IN2). The original `VIN_LDO` label and everything downstream of the cut (U1, the sensor-excitation tap, TP8) were left completely untouched — they now get their power from the mux's OUT pin via the same label-matching mechanism instead of straight from F1.
+- **Paper size A4 → A3**, to give the new block room without crowding anything.
 
-**Next step (pending your go-ahead):** resume placement — commit the current working-tree state as a baseline checkpoint, add the new parts/wiring to the schematic, validate with `kicad-cli sch erc` and a rendered preview, then commit that as its own change so it's a clean single revert if the layout doesn't work for you.
+**Bugs caught and fixed during validation** (via `kicad-cli sch erc` + a rendered SVG check, not caught by eye): a routing mistake that shorted L1's two terminals together (a wire overshot past one pin to reach the other — fixed by routing to the near pin only), J6's ground pole was wired to nothing, the mux's IN2/OUT/5V_CAR net labels were sitting 2mm off their pins instead of on them (so they didn't actually connect), C15's ground leg was floating, the guessed inductor footprint didn't exist in KiCad's stock library, and TVS1 was installed backwards (traced to a rotation-direction ambiguity in my own placement math that a symmetric-part-only check couldn't reveal — confirmed and fixed by rendering it and reading the diode arrow directly).
+
+Not done, and not touched: the "Todo: TC2030 SWD / Power mux for USB Power and Car 12V" text note still reads as before — the mux half is now actually done, but I left the note as-is since editing it wasn't something you asked for. Say the word if you'd like it updated.
