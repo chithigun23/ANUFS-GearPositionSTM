@@ -1,4 +1,4 @@
 (sym_lib_table
 	(version 7)
-	(lib (name "gear") (type "") (uri "${KIPRJMOD}/library/schematic") (options "") (descr ""))
+	(lib (name "gear") (type "KiCad") (uri "${KIPRJMOD}/library/schematic") (options "") (descr ""))
 )
