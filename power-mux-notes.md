@@ -1,98 +1,91 @@
-# Power Mux (Car 12V + USB-C 5V) — Session Notes
+# Power and gear-output notes
 
-Summary of the design/implementation session for adding a safe power mux to `gearPosSens.kicad_sch`. Written mid-session (schematic placement not yet complete — see **Status** at the bottom).
+Design notes for the board's power input and the gear-voltage output. Reflects the netlist as of 2026-11-11.
 
-## The ask
+## Sources
 
-Board needs to run from either the car's 12V harness or a USB-C connection (bench programming/debug), safely combined so neither source backfeeds into the other.
+- **Car:** the 5 V sensor supply from the MoTeC M150 (`SEN_5V`, J6 pin 1). Not a battery rail, so no 12 V, reverse-battery or load-dump handling.
+- **USB-C:** VBUS from J5 (`V_USB`), for bench programming and debug.
 
-## What the board already had (before this session)
-
-- **J5** — 16-pin USB-C receptacle. VBUS runs through **F1** (a 100mA polyfuse) into a net called `VIN_LDO`, which feeds **U1** (`AP2112K-3.3`, SOT-23-5 LDO, 3.8–6V in) → `+3.3V` for the STM32.
-- **U3** (`USBLC6-2SC6`) already protects the D+/D- lines.
-- **J4** is a `telemetry:2601-1102` WAGO 2-pole terminal block — already fully used for CAN+/CAN-, not power.
-- **U4** (`TCAN337` CAN transceiver) runs on **3.3V**, not 5V — confirmed by tracing a `power:+3.3V` symbol at (186.69, 110.49) wired straight down to it. (Earlier in the session I'd guessed it might be on the raw 5V rail — that was wrong.)
-- A `VIN_LDO`-net test point (TP8) exists, and there's a literal TODO left in the schematic (as a text annotation):
-  > `Todo:\nTC2030 SWD\nPower mux for USB Power and Car 12V`
-- **R2** and **R3** (both 5.1kΩ, 0805) are already wired to J5's CC1 and CC2 pins — **these are already-correct USB-C sink pulldowns**. I initially and incorrectly told the user CC1/CC2 were floating (I'd only grepped for text labels named "CC1"/"CC2" and missed that they connect via a direct routed wire to R2/R3 instead of a net label). This was caught by precisely reverse-engineering J5's pin geometry and cross-checking it against real wires in the file — **no new CC pulldown resistors are needed.**
-
-## Proposed architecture
+## Architecture
 
 ```
-CAR 12V ──[J6 WAGO 2-pole]──┬── TVS1 (SMBJ33A) ── GND
-                             │
-                        F2 (PTC ~0.5A)
-                             │
-                        D1 (Schottky, reverse-polarity block)
-                             │
-                     U6 Buck 12V→5V (LMR33630ADDAR)
-                             │
-                          "5V_CAR" ──┐
-                                     ├── U7 Power Mux (TPS2113APWR, ideal-diode) ── "5V_SYS" (relabeled VIN_LDO)
-USB-C J5 VBUS ── F1 (existing) ── "5V_USB" ──┘                                          │
-                                                                    ┌─────────────────────┼─────────────────┐
-                                                              U1 AP2112K-3.3         U4 TCAN337          sensor
-                                                              → 3V3 (MCU)          (already 3.3V,        excitation
-                                                                                    unaffected)             tap
+M150 sensor 5 V (J6.1) --1 uF--> U6 TPS2116 VIN1
+                                  |  VOUT (MUX_OUT) --> F1 (200 mA PTC) --> /5V --> U1 AP2112K-3.3 --> +3V3
+USB-C VBUS (V_USB) ----1 uF--> U6 VIN2          |
+                                                +--> U5 TLV9062 V+ (100 nF)
 ```
 
-Key idea: the mux's `OUT` pin gets relabeled back to `VIN_LDO` — the exact net name already used everywhere downstream (U1, sensor excitation tap, etc.) — so nothing already wired to that net needs to be touched. Only the segment between F1 and U1 gets relabeled from `VIN_LDO` to `5V_USB` to feed the mux's IN2 instead.
+- **U6 `TPS2116`** is in priority mode (MODE tied to VIN1). VIN1 (car) is used while PR1 is above V_REF, otherwise VIN2 (USB).
+- It blocks reverse current, so the M150 supply is never back-fed from USB and a laptop is never back-fed from the car (datasheet leakage is about 1 to 2 uA on the unused input).
+- Rated 1.6 to 5.5 V in, absolute max 6 V. Fine for a clean 5 V sensor supply.
 
-## Component selections (final)
+## Switchover threshold
 
-All sourced via `easyeda2kicad --full --lcsc_id=...` (pulls symbol+footprint+3D from the real LCSC/EasyEDA part data) rather than hand-drawn, specifically so pin assignments come from source data, not memory.
+`Vth = V_REF x (1 + R13 / R14)`, with V_REF = 1.00 V typical (0.92 to 1.08 V).
 
-| Ref | Part | Package | LCSC | Notes |
-|---|---|---|---|---|
-| J6 | WAGO 2601-1102 (reuse) | THT | — | Same part as J4, no new library entry needed |
-| TVS1 | **SMBJ33A** | SMB/DO-214AA | C499719 | 33V standoff, clamps automotive load-dump above 14.4V charging |
-| F2 | Generic PTC (stock `Device:Polyfuse`) | 0603 | — | ~0.5A hold, same footprint style as existing F1 |
-| D1 | **PMEG6010ER** | SOD-123W | C456121 | Series Schottky, reverse-polarity protection ahead of the buck |
-| U6 | **LMR33630ADDAR** | HTSSOP-8 PowerPAD | C841384 | 12V→5V buck. Pinout: 1=PGND, 2=VIN, 3=EN, 4=PG, 5=FB, 6=VCC, 7=BOOT, 8=SW, 9=EP(=PGND) |
-| U7 | **TPS2113APWR** | TSSOP-8 | C130052 | Ideal-diode power mux. Pinout: 1=STAT, 2=~EN, 3=VSNS, 4=ILIM, 5=GND, 6=IN2, 7=OUT, 8=IN1 |
+- `R13` = 300 k (VIN1 to PR1), `R14` = 100 k (PR1 to GND)
+- Vth = 4.0 V typical, 3.68 to 4.32 V over V_REF tolerance
+- Divider draws 12.5 uA at 5 V
+- Chosen so the switch happens well above the LDO's roughly 3.55 V minimum input, and well below the car supply's normal 5 V
 
-**Correction made mid-session:** I originally told the user TPS2113A came in an MSOP-10 (`TPS2113ADGNR`) based on misreading a PDF pinout caption. The actual stocked/orderable LCSC part is **TPS2113APWR**, an 8-pin **TSSOP** — a different, easier-to-hand-solder package. The library entry uses the corrected part.
+## Gear-voltage output
 
-**Deliberately no new library part for:** R9/R10 (not needed at all — see R2/R3 finding above), F2 (stock `Device:Polyfuse`), J6 (reuses existing `telemetry:2601-1102`).
+STM32 DAC (`PA4`) into a `TLV9062` op-amp, with a divider readback on an ADC pin.
 
-### Key design values (from datasheet/search verification, not guessed)
+```
+PA4 --+-- U5 +in      U5 out --+-- GEAR_OUT (J6.3)
+      |                 |      |
+     R10 100k          R11 4.99k  R9 10k
+      |                 |      |
+     GND         -in ---+     GEAR_OUT_DIV --> PA1
+                  |                |
+                 R12 10k          R15 15k
+                  |                |
+                 GND              GND
+```
 
-- **LMR33630ADDAR feedback divider:** Vref = 0.8V, TI recommends top resistor (VOUT→FB) = 100kΩ. For 5.0V out: bottom resistor (FB→GND) = 100k / 5.25 ≈ **19.1kΩ** (standard E96 value) → Vout ≈ 4.99V.
-  - EN tied to VIN (always-on, no MCU control needed).
-  - BOOT cap: 100nF (standard across the whole TI bootstrap-buck family).
-  - Planned L1 ≈ 22µH, Cin ≈ 10µF/50V, Cout ≈ 22µF/16V (conservative, safe values for a <0.5A load; not WEBENCH-optimized).
-  - Exposed pad (pin 9) ties to the same PGND as pin 1.
-- **TPS2113APWR:**
-  - ILIM: `I_LIMIT(mA) = 500 / R_ILIM(kΩ)`. Planned R_ILIM ≈ 500Ω → ~1A limit (headroom over an assumed <300–400mA board load).
-  - VSNS: pulling it to GND puts the part in **autoswitching mode** — it automatically picks whichever of IN1/IN2 is higher, with ideal-diode reverse-current blocking. (No separate "priority pin" exists on this part — I'd implied one earlier in the conversation; that was imprecise. Pulling VSNS high instead would force fixed IN1-priority, but autoswitching is simpler and was the actual goal, so GND is the plan.)
-  - EN (`~EN`, active-low): tie to GND to permanently enable.
-  - STAT: left unconnected (valid per datasheet); could add a status LED later if wanted, not part of this pass.
+- **Gain:** `1 + R11 / R12 = 1.499`. A 4.1 V output needs about 2.74 V from the DAC, which is code about 3394 at a 3.3 V VDDA.
+- **DAC buffer off.** With the buffer on the output cannot go below 0.2 V, so 0 V ("fault / unknown") would be unreachable. Buffer-off output impedance is up to 15 kohm, fine into an op-amp input.
+- **R10 pulldown** keeps the op-amp input at 0 V while `PA4` floats during reset, so `GEAR_OUT` is 0 V until the firmware enables the DAC.
+- **DAC specs** (STM32F072 datasheet, table 60): INL +-4 LSB, offset +-10 mV, gain error +-0.5%, settling 4 us max, VDDA 2.4 to 3.6 V. The output is ratiometric to VDDA.
+- **Readback:** ratio 0.6, so 4.1 V reads as about 2.46 V, and the op-amp's rail limit of about 5 V reads as about 3.0 V. Source impedance is 6 kohm, so use an ADC sample time of 13.5 cycles or longer (datasheet RAIN max is 11.4 kohm at 13.5 cycles).
+- **Closed loop:** trims out DAC offset and gain error, op-amp offset and resistor error. It cannot remove VDDA error by itself, because the DAC and ADC both scale with VDDA. Use `VREFINT` (ADC channel 17) with the factory `VREFINT_CAL` value at `0x1FFFF7BA` to compute the real VDDA and convert readings to volts. Use 0.1% resistors in the divider.
+- **Timing:** set the output from a lookup table at the start of a shift and trim in the background while the gear is steady. Do not wait on the ADC inside the shift path (the old build budgets about 15 to 20 ms from sensor to output). Use a deadband of a couple of DAC counts so the trim does not hunt.
+- **Fault detection:** a readback far from the commanded value (for example 0 V when a gear was commanded) means a stuck or shorted output.
 
-## Library work completed this session
+## CAN
 
-Added to `GearPositionSTM/library/` (nickname `gear`), each with `.kicad_sym` + `.kicad_mod` + `.step`:
-- `gear:SMBJ33A`, `gear:PMEG6010ER`, `gear:LMR33630ADDAR`, `gear:TPS2113APWR`
+`U4 TCAN337` runs from 3.3 V (recommended 3.0 to 3.6 V). Its bus pins are ISO 11898-2 compatible, have +-14 V fault protection and a +-12 V common-mode range, and go high-impedance when the board is unpowered. The datasheet states it is compatible with 5 V CAN transceivers on the same bus. There is no 120 ohm termination on the board, so this assumes the board is mid-bus or the bus is terminated elsewhere.
 
-All four verified with `kicad-cli sym export svg` / `fp export svg` (both resolve and render). One hiccup along the way: renaming `PMEG6010ER`'s symbol left its internal child-unit symbol name mismatched (`PMEG6010ER,115_0_1` instead of `PMEG6010ER_0_1`), which made `kicad-cli sym upgrade` fail with a bare "Unable to load library" — fixed by renaming the child unit to match.
+## Load
 
-Saved as a memory ([project_gear_library.md](../../../Users/chith/.claude/projects/C--Claude/memory/project_gear_library.md) in Claude's memory store) so this convention doesn't need to be re-derived next session.
+All logic runs from 3.3 V through the LDO, so the 5 V input current equals the 3.3 V load current, plus the op-amp and readback divider on the 5 V side.
 
-## Git state
+| Load | Typical | Worst case |
+|---|---|---|
+| TCAN337 | about 3.5 mA idle | 55 to 60 mA dominant |
+| STM32F072 at 48 MHz | about 25 mA | about 30 mA |
+| DAC, op-amp, readback divider, LDO quiescent | about 1 to 3 mA (estimate) | about 3 mA (estimate) |
+| **Total** | **about 40 to 60 mA** | **about 90 to 100 mA** |
 
-- Repo: `C:\Users\chith\Desktop\GearPositionSTM` (branch `main`, up to date with `origin/main`).
-- Two commits made this session:
-  - `1ca4132` "Checkpoint before power-mux schematic placement" — the pre-existing working-tree state (your own prior WIP: `.kicad_pcb`/`.kicad_prl`/`.kicad_pro`, `readme.md`) plus this session's new library parts. `git revert 097ecf5` or `git reset --hard 1ca4132` gets you back to right before the schematic was touched.
-  - `097ecf5` "Add car-12V/USB-5V power mux to the schematic" — the actual placement, isolated in its own commit so it can be reverted independently.
-- The `.history` submodule was deliberately left untouched throughout (not staged, not committed).
+`F1` (200 mA hold) sits on the mux output. A PTC derates when hot, so this is tight at the top end in a warm car. Its resistance is around an ohm, which is irrelevant for the LDO input.
 
-## Status — done
+## Decisions
 
-The mux is placed in `gearPosSens.kicad_sch`, in its own bounded/labeled block in the upper right of a newly-widened A3 sheet, well clear of existing content. Summary of what changed:
+- **Mux, not diodes.** Diodes would also have worked. The power saving is nil, because the LDO current is the same either way. The mux was kept for the guaranteed car priority and the lack of a diode drop.
+- **No buck converter.** 12 V is not used, the supply is already 5 V.
+- **No reverse-polarity stage or TVS on `SEN_5V`.** The M150 generates its sensor 5 V internally, so reversing the battery does not put a negative voltage on `SEN_5V`. Confirm the M150's own reverse-battery behavior in its manual.
+- **STM32 DAC plus op-amp, not an MCP4801.**
+  - The MCP4801's output cannot exceed its 3.3 V supply, and on 5 V its SPI inputs would need level shifting (inputs need at least 0.7 x VDD).
+  - The STM32 DAC is 12-bit with better datasheet offset and gain error, removes a chip, and the TLV9062 is already used on APPPD.
 
-- **New parts placed:** J6 (WAGO, reused), TVS1 (SMBJ33A), F2 (Polyfuse, stock), D1 (PMEG6010ER), U6 (LMR33630ADDAR) with its support passives (C14 10µF Cin, C15 1µF Cvcc, C16 100nF Cboot, L1 22µH, C17 22µF Cout, R11 100k/R12 19.1k FB divider), U7 (TPS2113APWR) with R13 (499Ω ILIM).
-- **Only existing-content edit:** the one wire segment directly between F1 and the rest of the `VIN_LDO` run was cut; F1's now-bare pin got a new `5V_USB` label (feeding the mux's IN2). The original `VIN_LDO` label and everything downstream of the cut (U1, the sensor-excitation tap, TP8) were left completely untouched — they now get their power from the mux's OUT pin via the same label-matching mechanism instead of straight from F1.
-- **Paper size A4 → A3**, to give the new block room without crowding anything.
+## Open items
 
-**Bugs caught and fixed during validation** (via `kicad-cli sch erc` + a rendered SVG check, not caught by eye): a routing mistake that shorted L1's two terminals together (a wire overshot past one pin to reach the other — fixed by routing to the near pin only), J6's ground pole was wired to nothing, the mux's IN2/OUT/5V_CAR net labels were sitting 2mm off their pins instead of on them (so they didn't actually connect), C15's ground leg was floating, the guessed inductor footprint didn't exist in KiCad's stock library, and TVS1 was installed backwards (traced to a rotation-direction ambiguity in my own placement math that a symmetric-part-only check couldn't reveal — confirmed and fixed by rendering it and reading the diode arrow directly).
-
-Not done, and not touched: the "Todo: TC2030 SWD / Power mux for USB Power and Car 12V" text note still reads as before — the mux half is now actually done, but I left the note as-is since editing it wasn't something you asked for. Say the word if you'd like it updated.
+- Tie the unused op-amp channel as a follower: `U5` pin 6 to pin 7, and pin 5 to GND (currently pin 5 is on `+3V3`, pin 6 on GND, pin 7 open).
+- Check whether the duplicate test points `TP14` (+3V3), `TP15` (CAN+) and `TP16` (CAN-) are intentional.
+- `ST` (pin 8 of `U6`) is unconnected. `PA2` is free if you want to read which source is active (pull up to 3.3 V, high = car, low = USB).
+- Check the M150 sensor 5 V output current rating against the board's roughly 100 mA worst case.
+- Confirm the TLV9062 is rated for a 5 V supply.
+- Consider more bulk capacitance on `MUX_OUT` (only 100 nF there, 10 uF and 1 uF are behind `F1`).
+- The neutral switch input (J6 pin 6) goes straight to `PB2` with no series resistor or clamp.

@@ -2,45 +2,39 @@
 	(version 20251024)
 	(generator "kicad_symbol_editor")
 	(generator_version "10.0")
-	(symbol "TPS2113APWR"
+	(symbol "TLV9062xD"
+		(pin_names
+			(offset 0.127)
+		)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
 		(duplicate_pin_numbers_are_jumpers no)
 		(property "Reference" "U"
-			(at 0 8.89 0)
+			(at 2.54 6.35 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 			)
 		)
-		(property "Value" "TPS2113APWR"
-			(at 0 -8.89 0)
+		(property "Value" "TLV9062xD"
+			(at 2.54 3.81 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 			)
 		)
-		(property "Footprint" "gear:TPS2113APWR"
-			(at 0 -11.43 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(hide yes)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://lcsc.com/product-detail/PMIC-Power-Distribution-Switches_TI_TPS2113APWR_TPS2113APWR_C130052.html"
-			(at 0 -13.97 0)
+		(property "Footprint" "gear:SOIC-8_3.9x4.9mm_P1.27mm"
+			(at 2.54 0 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(hide yes)
@@ -50,7 +44,18 @@
 				)
 			)
 		)
-		(property "Description" ""
+		(property "Datasheet" "https://www.ti.com/lit/ds/symlink/tlv9062.pdf"
+			(at 6.35 3.81 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Dual operational amplifier, 300 uV Offset, SOIC-8"
 			(at 0 0 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -61,40 +66,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" "TI(德州仪器)"
-			(at 0 -16.51 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(hide yes)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "MPN" "TPS2113APWR"
-			(at 0 -19.05 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(hide yes)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC Part" "C130052"
-			(at 0 -21.59 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(hide yes)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "ki_keywords" "Power Distribution Switches"
+		(property "ki_keywords" "dual op-amp low power"
 			(at 0 0 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -105,44 +77,34 @@
 				)
 			)
 		)
-		(symbol "TPS2113APWR_0_1"
-			(rectangle
-				(start -10.16 6.86)
-				(end 10.16 -6.86)
+		(property "ki_fp_filters" "SOIC*3.9x4.9mm*P1.27mm*"
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(symbol "TLV9062xD_1_1"
+			(polyline
+				(pts
+					(xy 5.08 0) (xy -5.08 5.08) (xy -5.08 -5.08) (xy 5.08 0)
+				)
 				(stroke
-					(width 0)
+					(width 0.254)
 					(type default)
 				)
 				(fill
 					(type background)
 				)
 			)
-			(circle
-				(center -8.89 5.59)
-				(radius 0.38)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
-			)
-			(circle
-				(center -8.89 5.59)
-				(radius 0.38)
-				(stroke
-					(width 0)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
-			)
-			(pin unspecified line
-				(at -12.7 3.81 0)
+			(pin output line
+				(at 7.62 0 180)
 				(length 2.54)
-				(name "STAT"
+				(name ""
 					(effects
 						(font
 							(size 1.27 1.27)
@@ -157,10 +119,10 @@
 					)
 				)
 			)
-			(pin unspecified line
-				(at -12.7 1.27 0)
+			(pin input line
+				(at -7.62 -2.54 0)
 				(length 2.54)
-				(name "~{EN}"
+				(name "-"
 					(effects
 						(font
 							(size 1.27 1.27)
@@ -175,10 +137,10 @@
 					)
 				)
 			)
-			(pin unspecified line
-				(at -12.7 -1.27 0)
+			(pin input line
+				(at -7.62 2.54 0)
 				(length 2.54)
-				(name "VSNS"
+				(name "+"
 					(effects
 						(font
 							(size 1.27 1.27)
@@ -193,28 +155,24 @@
 					)
 				)
 			)
-			(pin unspecified line
-				(at -12.7 -3.81 0)
-				(length 2.54)
-				(name "ILIM"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
+		)
+		(symbol "TLV9062xD_2_1"
+			(polyline
+				(pts
+					(xy 5.08 0) (xy -5.08 5.08) (xy -5.08 -5.08) (xy 5.08 0)
 				)
-				(number "4"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
+				(stroke
+					(width 0.254)
+					(type default)
+				)
+				(fill
+					(type background)
 				)
 			)
-			(pin unspecified line
-				(at 12.7 -3.81 180)
+			(pin input line
+				(at -7.62 2.54 0)
 				(length 2.54)
-				(name "GND"
+				(name "+"
 					(effects
 						(font
 							(size 1.27 1.27)
@@ -229,10 +187,10 @@
 					)
 				)
 			)
-			(pin unspecified line
-				(at 12.7 -1.27 180)
+			(pin input line
+				(at -7.62 -2.54 0)
 				(length 2.54)
-				(name "IN2"
+				(name "-"
 					(effects
 						(font
 							(size 1.27 1.27)
@@ -247,10 +205,10 @@
 					)
 				)
 			)
-			(pin unspecified line
-				(at 12.7 1.27 180)
+			(pin output line
+				(at 7.62 0 180)
 				(length 2.54)
-				(name "OUT"
+				(name ""
 					(effects
 						(font
 							(size 1.27 1.27)
@@ -265,10 +223,30 @@
 					)
 				)
 			)
-			(pin unspecified line
-				(at 12.7 3.81 180)
-				(length 2.54)
-				(name "IN1"
+		)
+		(symbol "TLV9062xD_3_1"
+			(pin power_in line
+				(at 0 -7.62 90)
+				(length 3.81)
+				(name "V-"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "4"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin power_in line
+				(at 0 7.62 270)
+				(length 3.81)
+				(name "V+"
 					(effects
 						(font
 							(size 1.27 1.27)
