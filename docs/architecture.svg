@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 640" width="1200" height="640" role="img" aria-labelledby="t d">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" width="1200" height="700" role="img" aria-labelledby="t d">
   <title id="t">GearSensor STM32 architecture</title>
-  <desc id="d">Block diagram. Power: M150 sensor 5V and USB-C VBUS feed a TPS2116 power mux, then a polyfuse and a 3.3V LDO. Signals: LPS, neutral switch and USB data into the STM32F072. The STM32 DAC drives a TLV9062 op-amp for the gear voltage output, which is read back through a divider on an ADC pin. A CAN transceiver connects to the ECU bus.</desc>
+  <desc id="d">Block diagram. Power: M150 sensor 5V and USB-C VBUS feed a TPS2116 power mux, then a polyfuse and a 3.3V LDO. Signals: LPS, neutral switch and USB data into the STM32F072. The STM32 DAC drives a TLV9062 op-amp for the gear voltage output, which is read back through a divider on an ADC pin. Six bicolour LEDs are driven directly from MCU pins, with their 5V rail behind a slide switch. A CAN transceiver connects to the ECU bus.</desc>
   <style>
     text { font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; }
     .bg   { fill: #0d1117; }
@@ -24,18 +24,18 @@
     <marker id="ab" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#7c9cff"/></marker>
   </defs>
 
-  <rect class="bg" width="1200" height="640" rx="14"/>
+  <rect class="bg" width="1200" height="700" rx="14"/>
 
   <!-- POWER LANE -->
   <text class="lane" x="40" y="38">POWER</text>
 
   <rect class="pbox" x="40"  y="60"  width="180" height="64" rx="8"/>
   <text class="ttl" x="56" y="87">M150 sensor 5 V</text>
-  <text class="sub" x="56" y="107">J6 pin 1, SEN_5V</text>
+  <text class="sub" x="56" y="107">J3 pin 1, SEN_5V</text>
 
   <rect class="pbox" x="40"  y="136" width="180" height="64" rx="8"/>
   <text class="ttl" x="56" y="163">USB-C VBUS</text>
-  <text class="sub" x="56" y="183">J5, bench / programming</text>
+  <text class="sub" x="56" y="183">J1, bench / programming</text>
 
   <rect class="pbox" x="520" y="60"  width="200" height="140" rx="8"/>
   <text class="ttl" x="536" y="90">TPS2116 power mux</text>
@@ -46,7 +46,7 @@
 
   <rect class="pbox" x="770" y="98"  width="150" height="64" rx="8"/>
   <text class="ttl" x="786" y="125">Polyfuse F1</text>
-  <text class="sub" x="786" y="145">200 mA hold</text>
+  <text class="sub" x="786" y="145">300 mA hold</text>
 
   <rect class="pbox" x="960" y="98"  width="200" height="64" rx="8"/>
   <text class="ttl" x="976" y="125">AP2112K-3.3 LDO</text>
@@ -67,7 +67,7 @@
   <text class="lane" x="40" y="252">SIGNALS</text>
 
   <!-- MCU -->
-  <rect class="mcu" x="520" y="262" width="200" height="330" rx="10"/>
+  <rect class="mcu" x="520" y="262" width="200" height="362" rx="10"/>
   <text class="ttl" x="620" y="402" text-anchor="middle" font-size="18">STM32F072CB</text>
   <text class="sub" x="620" y="424" text-anchor="middle">Cortex-M0, LQFP-48</text>
   <text class="sub" x="620" y="442" text-anchor="middle">24 MHz HSE crystal</text>
@@ -76,7 +76,7 @@
   <!-- left rows (inputs) -->
   <rect class="box" x="40"  y="290" width="180" height="64" rx="8"/>
   <text class="ttl" x="56" y="317">LPS signal</text>
-  <text class="sub" x="56" y="337">J6 pin 7, linear position</text>
+  <text class="sub" x="56" y="337">J3 pin 7, TVS D1</text>
   <rect class="box" x="270" y="290" width="200" height="64" rx="8"/>
   <text class="ttl" x="286" y="317">10 k / 15 k divider</text>
   <text class="sub" x="286" y="337">5 V sensor to 3 V ADC, PA0</text>
@@ -85,7 +85,7 @@
 
   <rect class="box" x="40"  y="380" width="180" height="64" rx="8"/>
   <text class="ttl" x="56" y="407">Neutral switch</text>
-  <text class="sub" x="56" y="427">J6 pin 6, closed = neutral</text>
+  <text class="sub" x="56" y="427">J3 pin 6, TVS D2, 1 k</text>
   <rect class="box" x="270" y="380" width="200" height="64" rx="8"/>
   <text class="ttl" x="286" y="407">Digital input</text>
   <text class="sub" x="286" y="427">PB2</text>
@@ -94,7 +94,7 @@
 
   <rect class="box" x="40"  y="470" width="180" height="64" rx="8"/>
   <text class="ttl" x="56" y="497">USB-C data</text>
-  <text class="sub" x="56" y="517">J5, D+ / D-</text>
+  <text class="sub" x="56" y="517">J1, D+ / D-</text>
   <rect class="box" x="270" y="470" width="200" height="64" rx="8"/>
   <text class="ttl" x="286" y="497">USBLC6-2SC6 ESD</text>
   <text class="sub" x="286" y="517">PA11 / PA12</text>
@@ -102,8 +102,8 @@
   <path class="bus flow" d="M470 502 H516" marker-start="url(#ab)" marker-end="url(#ab)"/>
 
   <rect class="box" x="40"  y="550" width="180" height="56" rx="8"/>
-  <text class="ttl" x="56" y="574">SWD header J1</text>
-  <text class="sub" x="56" y="592">PA13 / PA14 debug + flash</text>
+  <text class="ttl" x="56" y="574">SWD J2 / Tag-Connect J4</text>
+  <text class="sub" x="56" y="592">PA13 / PA14, NRST, 3.3 V</text>
   <path class="bus flow" d="M220 578 H516" marker-start="url(#ab)" marker-end="url(#ab)"/>
 
   <!-- right rows (outputs) -->
@@ -112,7 +112,7 @@
   <text class="sub" x="786" y="357">gain 1.5, 5 V supply</text>
   <rect class="box" x="960" y="310" width="200" height="64" rx="8"/>
   <text class="ttl" x="976" y="337">Gear voltage out</text>
-  <text class="sub" x="976" y="357">J6 pin 3, to M150 input</text>
+  <text class="sub" x="976" y="357">J3 pin 3, TVS D3</text>
   <path class="sg flow" d="M720 342 H766" marker-end="url(#as)"/>
   <path class="sg flow" d="M920 342 H956" marker-end="url(#as)"/>
   <text class="lbl" x="743" y="334" text-anchor="middle">PA4</text>
@@ -131,12 +131,25 @@
   <text class="sub" x="786" y="517">3.3 V CAN transceiver</text>
   <rect class="box" x="960" y="470" width="200" height="64" rx="8"/>
   <text class="ttl" x="976" y="497">CAN+ / CAN-</text>
-  <text class="sub" x="976" y="517">J6 pins 5 / 4, M150 bus</text>
+  <text class="sub" x="976" y="517">J3 pins 5 / 4, M150 bus</text>
   <path class="bus flow" d="M720 502 H766" marker-start="url(#ab)" marker-end="url(#ab)"/>
   <path class="bus flow" d="M920 502 H956" marker-start="url(#ab)" marker-end="url(#ab)"/>
 
+  <!-- status LEDs -->
+  <rect class="pbox" x="770" y="556" width="150" height="64" rx="8"/>
+  <text class="ttl" x="786" y="583">Slide switch SW3</text>
+  <text class="sub" x="786" y="603">LED 5 V on / off</text>
+  <rect class="box" x="960" y="556" width="200" height="64" rx="8"/>
+  <text class="ttl" x="976" y="583">6 bicolour LEDs</text>
+  <text class="sub" x="976" y="603">4 gear, 1 status, 1 neutral</text>
+  <path class="pw flow" d="M920 588 H956" marker-end="url(#ap)"/>
+  <path class="pw flow" d="M748 588 H766" marker-end="url(#ap)"/>
+  <text class="lbl" x="748" y="578" text-anchor="middle">/5V</text>
+  <path class="sg flow" d="M720 612 H740 V646 H1060 V624" marker-end="url(#as)"/>
+  <text class="lbl" x="900" y="662" text-anchor="middle">12 pins, open-drain, 390 / 680 ohm</text>
+
   <!-- legend -->
-  <g transform="translate(770 566)">
+  <g transform="translate(40 650)">
     <path class="pw" d="M0 6 H28"/><text class="lbl" x="36" y="10">power</text>
     <path class="sg" d="M110 6 H138"/><text class="lbl" x="146" y="10">signal</text>
     <path class="bus" d="M220 6 H248"/><text class="lbl" x="256" y="10">bus / two-way</text>
