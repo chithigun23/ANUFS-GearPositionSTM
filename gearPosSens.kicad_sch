@@ -21179,7 +21179,7 @@
 				)
 			)
 		)
-		(property "Footprint" "gear:SolderWire-0.5sqmm_1x08_P4.6mm_D0.9mm_OD2.1mm"
+		(property "Footprint" "gear:SolderWire-0.5sqmm_1x08_P4.2mm_D0.9mm_OD2.1mm"
 			(at 179.07 80.01 0)
 			(hide yes)
 			(show_name no)

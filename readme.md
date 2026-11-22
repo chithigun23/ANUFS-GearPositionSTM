@@ -18,7 +18,7 @@ The diagram is animated: dashes show the direction of flow, amber for power, tea
 
 ## Car connector (J3)
 
-Solder-wire pigtails, not a board connector: eight PTH pads in a row along the bottom edge (`gear:SolderWire-0.5sqmm_1x08_P4.6mm_D0.9mm_OD2.1mm`, 1.15 mm holes for 0.5 mm² or smaller wire, 4.6 mm pitch), pin 1 on the right, labelled on the back silkscreen.
+Solder-wire pigtails, not a board connector: eight PTH pads in a row along the bottom edge (`gear:SolderWire-0.5sqmm_1x08_P4.2mm_D0.9mm_OD2.1mm`, 1.15 mm holes for 0.5 mm² or smaller wire, 4.2 mm pitch), pin 1 on the right, labelled on the back silkscreen.
 
 | Pin | Net | Function |
 |---|---|---|
@@ -30,6 +30,22 @@ Solder-wire pigtails, not a board connector: eight PTH pads in a row along the b
 | 6 | `NEUT_SW` | Neutral switch |
 | 7 | `SPS` | Linear position sensor signal |
 | 8 | - | Not connected |
+
+## Status LEDs
+
+Six red/green LEDs along the top edge, labelled on the silkscreen. Left to right: `NEUT` (`LED6`), `STAT` (`LED5`), `MODE` (`LED4`), then the code LEDs `4`, `2` and `1` (`LED3`, `LED2`, `LED1`). The three code LEDs read as a binary number. The same legend is on the back silkscreen. `SW3` (`LED ON/OFF`) turns every LED off in hardware.
+
+| What you see | Meaning |
+|---|---|
+| `4 2 1` green, `MODE` green | Gear 1 to 6 in binary (1 = 001, 6 = 110). `111` is neutral. |
+| `4 2 1` green, `MODE` amber | Shifting: the new gear, waiting for the actuator to return |
+| `4 2 1` red, `MODE` red blinking 2 Hz | Unknown gear, reason code 1 to 3. Gear output 0 V. |
+| `4 2 1` red, `MODE` red solid | Fault, reason code 4 to 7. Gear output 0 V. |
+| `STAT` blinking 1 Hz | Firmware running: green on car power, amber on USB power, red while a fault is active. A steady or dark `STAT` means the main loop has stopped. |
+| `NEUT` green | Neutral switch closed |
+| `NEUT` red | Gear count and neutral switch disagree (reason 2) |
+
+Reason codes: 1 not known at start-up, 2 position sensor count and neutral switch disagree, 3 neutral switch opened with no shift, 4 position sensor out of range, 5 position sensor did not return to rest, 6 gear output readback mismatch, 7 VDDA implausible. See the [firmware plan](docs/firmware-plan.md) for the state machine.
 
 ## From the Arduino version
 

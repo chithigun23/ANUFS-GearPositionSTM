@@ -138,7 +138,9 @@ The DAC buffer-off output impedance varies with code, so it is not modelled. Wit
 
 On-board LEDs are for bench and pit diagnosis. Switch `SW3` cuts every LED in hardware. All 12 pins are 5 V tolerant and stay high-Z (LEDs dark) through reset.
 
-| State | LED1 to LED3 | LED4 |
+The code LEDs carry fixed bit weights, printed on the silkscreen above them: `LED3` = 4, `LED2` = 2, `LED1` = 1. They sit left to right in that order, so the board reads as a normal binary number. A lit die is a 1 and a dark LED is a 0. The legend is also on the back silkscreen.
+
+| State | LED3 LED2 LED1 (4 2 1) | LED4 (MODE) |
 |---|---|---|
 | ARMED, gear 1 to 6 | gear number in binary, green (1 = 001 to 6 = 110) | green |
 | ARMED, N | 111, green | green |
