@@ -1,0 +1,17 @@
+[workspace]
+# Gear position sensor firmware: the host-testable logic crate and the STM32F072CB binary.
+# Build the firmware with `cargo fw` and test the logic with `cargo core-test` (aliases in .cargo/config.toml).
+members = ["gps-core", "gps-fw"]
+resolver = "2"
+
+[profile.dev]
+opt-level = "s"
+debug = 2
+lto = "fat"
+
+[profile.release]
+opt-level = "s"
+debug = 2          # debug info stays in the ELF only; it does not change flash usage
+lto = "fat"
+codegen-units = 1
+panic = "abort"

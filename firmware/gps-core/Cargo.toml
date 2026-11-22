@@ -1,0 +1,16 @@
+[package]
+name = "gps-core"
+version = "0.1.0"
+edition = "2024"
+description = "Gear position sensor logic: calibration, shift state machine, output control and LED decoding. No hardware types."
+license = "MIT"
+publish = false
+
+[features]
+defmt = ["dep:defmt"]
+
+[dependencies]
+defmt = { version = "1.2.0", optional = true }
+
+[lints.rust]
+unsafe_code = "forbid"

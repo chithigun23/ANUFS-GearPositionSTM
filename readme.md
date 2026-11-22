@@ -53,11 +53,11 @@ Reason codes: 1 not known at start-up, 2 position sensor count and neutral switc
 - One board replaces the Arduino UNO R4 WiFi and shield.
 - The gear-voltage output is read back through an ADC pin again, which version 2 of the Arduino build dropped.
 - Status LEDs replace the LED matrix. This board has no WiFi or Bluetooth, so the phone display does not carry over. USB-C and the SWD header are the way in for programming and debug.
-- This repo is hardware only. There is no firmware in it yet; the firmware is planned in Rust (see the plan below).
+- The firmware is in Rust ([`firmware/`](firmware)), written to the [firmware plan](docs/firmware-plan.md). It builds and its logic is unit tested on the PC, but it has not run on a board yet.
 
 ## Status
 
-Work in progress. The schematic is being finished and the PCB is not yet routed. Not run on a car.
+Work in progress. The 50 x 50 mm PCB is placed but not yet routed. The firmware builds and its logic tests pass on the PC; it has not been flashed to a board. Not run on a car.
 
 ## Repo contents
 
@@ -65,5 +65,6 @@ Work in progress. The schematic is being finished and the PCB is not yet routed.
 - [Schematic](gearPosSens.kicad_sch)
 - [PCB layout](gearPosSens.kicad_pcb)
 - [Power and gear-output design notes](power-mux-notes.md)
+- [Firmware](firmware) (Rust, Embassy)
 - [Firmware plan](docs/firmware-plan.md) and its [architecture diagram](docs/firmware-architecture.svg)
 - [Symbols, footprints and 3D models](library)

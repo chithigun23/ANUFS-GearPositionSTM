@@ -1,0 +1,16 @@
+[alias]
+# Firmware for the board (flash and run with `cargo fw-run` and a probe on J2 or the TC2030).
+fw = "build -p gps-fw --release --target thumbv6m-none-eabi"
+fw-run = "run -p gps-fw --release --target thumbv6m-none-eabi"
+# Logic tests on the PC.
+core-test = "test -p gps-core"
+
+[target.thumbv6m-none-eabi]
+runner = "probe-rs run --chip STM32F072CBTx"
+rustflags = [
+    "-C", "link-arg=-Tlink.x",
+    "-C", "link-arg=-Tdefmt.x",
+]
+
+[env]
+DEFMT_LOG = "info"
