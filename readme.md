@@ -18,6 +18,8 @@ The diagram is animated: dashes show the direction of flow, amber for power, tea
 
 ## Car connector (J3)
 
+Solder-wire pigtails, not a board connector: eight PTH pads in a row along the bottom edge (`gear:SolderWire-0.5sqmm_1x08_P4.6mm_D0.9mm_OD2.1mm`, 1.15 mm holes for 0.5 mm² or smaller wire, 4.6 mm pitch), pin 1 on the right, labelled on the back silkscreen.
+
 | Pin | Net | Function |
 |---|---|---|
 | 1 | `SEN_5V` | M150 sensor 5 V in |
