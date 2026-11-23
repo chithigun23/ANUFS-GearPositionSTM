@@ -1,0 +1,21 @@
+(version 1)
+
+# Power and ground: 0.4 mm is the netclass width. Allow a neck-down to 0.3 mm on the outer layers
+# so a power track can enter the 0.3 mm pins of U2 (SOT-583) and U6 (LQFP-48).
+(rule "Power and GND outer min width"
+	(layer outer)
+	(condition "A.hasNetclass('Power') || A.hasNetclass('GND')")
+	(constraint track_width (min 0.3mm) (opt 0.4mm)))
+
+# Inner layers are 0.5 oz (15 um), so a power track there needs to be about 2.4 times wider
+# than on the 1 oz outer layers for the same current. 0.8 mm inner carries about 0.56 A at a 10 C rise.
+(rule "Power and GND inner min width"
+	(layer inner)
+	(condition "A.hasNetclass('Power') || A.hasNetclass('GND')")
+	(constraint track_width (min 0.8mm) (opt 0.8mm)))
+
+# The USB pair runs at 0.15 mm inside the pair; keep other tracks, vias and pours 0.3 mm away.
+# Pads are excluded so the pair can still enter J1's 0.5 mm pitch pins.
+(rule "USB pair spacing to other nets"
+	(condition "A.hasNetclass('USB') && A.Type == 'Track' && !B.hasNetclass('USB') && B.Type != 'Pad'")
+	(constraint clearance (min 0.3mm)))

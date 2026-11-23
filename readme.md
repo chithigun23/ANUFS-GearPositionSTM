@@ -60,6 +60,28 @@ Six red/green LEDs along the top edge, labelled on the silkscreen. Left to right
 
 Reason codes: 1 not known at start-up, 2 position sensor count and neutral switch disagree, 3 neutral switch opened with no shift, 4 position sensor out of range, 5 position sensor did not return to rest, 6 gear output readback mismatch, 7 VDDA implausible. See the [firmware plan](docs/firmware-plan.md) for the state machine.
 
+## Net classes
+
+Set in the [project file](gearPosSens.kicad_pro), with three extra checks in [`gearPosSens.kicad_dru`](gearPosSens.kicad_dru). Stackup is JLCPCB's 4-layer default: 1 oz outer, 0.5 oz inner, 0.21 mm prepreg to In1. Every value is well above JLCPCB's 4-layer minimums (0.09 mm track and space, 0.13 mm via ring).
+
+| Class | Nets | Track | Clearance | Via (pad / drill) | Why |
+|---|---|---|---|---|---|
+| `Power` | `SEN_5V`, `V_USB`, `MUX_OUT`, `+5V`, `+3V3`, `LED_5V` | 0.4 mm | 0.2 mm | 0.8 / 0.4 mm | About 1.2 A at a 10 C rise on 1 oz outer copper, 4 times the 300 mA fuse. The board draws under 0.2 A. |
+| `GND` | `GND` | 0.4 mm | 0.2 mm | 0.6 / 0.3 mm | Mostly pours; small vias for stitching. |
+| `USB` | `/inD+`, `/inD-`, `D+`, `D-` | 0.25 mm, 0.15 mm gap | 0.15 mm | 0.6 / 0.3 mm | About 90 ohm differential on the outer layer (IPC-2141 estimate). USB full speed is not critical over this length, but the pair should stay coupled. |
+| `CAN` | `CAN+`, `CAN-` | 0.3 mm, 0.3 mm gap | 0.3 mm | 0.6 / 0.3 mm | Harness signals, routed as a pair. |
+| `Harness` | `SPS`, `NEUT_SW`, `GEAR_OUT` | 0.3 mm | 0.3 mm | 0.6 / 0.3 mm | Come in from the car and take transients before the TVS clamps them. |
+| `Analog` | `VDDA`, `SPS_DIV`, `GEAR_OUT_DIV`, `GEAR_OUT_3V3`, op-amp and mux-threshold nodes | 0.25 mm | 0.2 mm | 0.6 / 0.3 mm | Low current; keep short and away from the LED and CAN lines. |
+| `Default` | Everything else (LED drives, SWD, crystal, CAN logic, reset, boot) | 0.2 mm | 0.2 mm | 0.6 / 0.3 mm | Logic signals, a few mA each. |
+
+The custom rules:
+
+- Power and GND tracks may neck down to 0.3 mm on the outer layers to enter the 0.3 mm pins of `U2` and `U6`.
+- Power and GND tracks on the inner layers must be 0.8 mm or wider, because 0.5 oz copper carries about a third of the current. Keep power on the outer layers or in pours where you can.
+- USB tracks keep 0.3 mm from any other net's tracks, vias and pours.
+
+Use two vias wherever a power track changes layer. The `Analog` class names three nets by their auto-generated names (`Net-(R11-Pad2)`, `Net-(U4A--)`, `Net-(U2-PR1)`). If the schematic is re-annotated, re-check that those nets are still in `Analog`.
+
 ## From the Arduino version
 
 - Same job, same sensors, same ECU interface. The shift logic, trust model and FMEA are documented on the [project page](https://chithigunatilake.com/GearSensor/).
