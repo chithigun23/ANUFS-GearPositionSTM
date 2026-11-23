@@ -198,9 +198,10 @@ Not used. Keep the transceiver silent from the first instruction: drive `PB1` hi
 ## Hardware notes from this plan
 
 - `R10` is 1 M (done).
-- **Filter capacitors:** add 10 to 100 nF footprints on `SPS_DIV` and `GEAR_OUT_DIV`. The 6 kohm source has none today. 100 nF gives a 0.6 ms time constant, harmless next to the 15 ms debounce, and it stops EMI aliasing.
+- **Filter capacitors (done):** `C20` and `C21`, 100 nF on `SPS_DIV` and `GEAR_OUT_DIV` at the ADC pins. With the 6 kohm divider source that is a 0.6 ms time constant, harmless next to the 15 ms debounce, and it stops EMI aliasing. Allow for it in the readback blanking: the output settles through it in about 3 ms, inside the 10 ms blank.
 - **0.1% resistors** for `R14`/`R15` (and `R5`/`R6`, `R11`/`R12`) set the accuracy. Tolerance is not shown in the netlist.
-- **Check the `R29`/`R30` power rating.** If `GEAR_OUT` is shorted to 5 V while the output is at 0 V, each 390 ohm resistor dissipates about 64 mW, and an 0402 is often rated 62.5 mW (unverified).
+- **`R29`/`R30` power rating (done):** now 0603. If `GEAR_OUT` is shorted to 5 V while the output is at 0 V, each 390 ohm resistor dissipates about 64 mW, which was marginal for an 0402 (often rated 62.5 mW). Check the chosen part's rating.
+- **VDDA decoupling (done):** `C18` 1 uF and `C19` 10 nF on `VDDA`, after the ferrite `FB1`, per ST's recommendation.
 
 ## Questions: settled and open
 
